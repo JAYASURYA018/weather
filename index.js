@@ -106,6 +106,7 @@ app.post("/chat", async function (req, res) {
 
   // var obj = JSON.parse(body);
   // console.log(obj);
+
   // var list = obj.list[0];
   // console.log("total length : " + obj.list.length);
   // var tempDate = new Date("2022-09-10T12:00:00+09:00");
