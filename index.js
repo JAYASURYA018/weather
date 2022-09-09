@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const dfff = require("dialogflow-fulfillment");
-
+const port = process.env.PORT || 3333;
 const axios = require("axios");
 
 // const nodefetch = require("node-fetch");
@@ -83,11 +83,11 @@ app.post("/chat", async function (req, res) {
       city = "singapore";
     }
     let data = [];
-    let WEATHERAPI =
+    let weatherapi =
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
       city +
       "&appid=c1bea648f3c6db74595c7c465820709c";
-    await axios(WEATHERAPI)
+    await axios(weatherapi)
       .then((res) => {
         data.push(res.data.list[0].weather[0].description);
       })
@@ -134,4 +134,4 @@ app.post("/chat", async function (req, res) {
   // }
 });
 
-app.listen(3333, () => console.log("server is live port at 3333"));
+app.listen(port, () => console.log("server is live port at 3333"));
